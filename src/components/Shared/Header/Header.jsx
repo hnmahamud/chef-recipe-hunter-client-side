@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar className="md:w-[50%] md:mx-auto" fluid={true} rounded={true}>
+    <Navbar className="md:w-[50%] md:mx-auto py-4" fluid={true} rounded={true}>
       <Navbar.Brand as={Link} to="/">
         <img src={logo} className="mr-3 h-6 sm:h-9" />
         <span className="self-center whitespace-nowrap text-xl font-semibold">
