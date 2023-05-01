@@ -53,7 +53,9 @@ const Header = () => {
             </Dropdown>
           </Tooltip>
         ) : (
-          <Button gradientDuoTone="cyanToBlue">Login</Button>
+          <Link to="/login">
+            <Button gradientDuoTone="cyanToBlue">Login</Button>
+          </Link>
         )}
 
         <Navbar.Toggle />
