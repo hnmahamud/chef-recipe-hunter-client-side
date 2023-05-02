@@ -3,7 +3,6 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
-  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
@@ -32,15 +31,11 @@ const AuthProviders = ({ children }) => {
 
   // Profile Update
   const profileUpdate = (updateName, updatePhoto) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: updateName,
       photoURL: updatePhoto,
     });
-  };
-
-  // Email verification
-  const verificationEmail = () => {
-    return sendEmailVerification(auth.currentUser);
   };
 
   // Login
@@ -87,7 +82,6 @@ const AuthProviders = ({ children }) => {
     user,
     createUser,
     profileUpdate,
-    verificationEmail,
     loginUser,
     googleSignIn,
     passwordReset,

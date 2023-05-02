@@ -4,13 +4,9 @@ import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProviders";
 
-// Blank user image
-const photo =
-  "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740&t=st=1682183923~exp=1682184523~hmac=7b363a7e2f6de1b8296fe22ea6eaceb24356ca04809ff110b92ad504d0c651d3";
-
 const Register = () => {
   // Context API
-  const { loading, setLoading, createUser, profileUpdate, verificationEmail } =
+  const { loading, setLoading, createUser, profileUpdate } =
     useContext(AuthContext);
 
   // Use location and navigate for get the pathname where user wanted to go.
@@ -82,6 +78,7 @@ const Register = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photoUrl.value;
     const password = form.password.value;
 
     // Create user
@@ -89,30 +86,28 @@ const Register = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setErr("");
-        event.target.reset();
-        setIsNotChecked(true);
-
-        // Navigate to user target path
-        navigate(from, { replace: true });
-
-        toast("Successfully registered!", {
-          position: toast.POSITION.TOP_CENTER,
-        });
 
         // Update user profile
         profileUpdate(name, photo)
           .then(() => {
             console.log(user);
+
+            setErr("");
+            event.target.reset();
+            setIsNotChecked(true);
+
+            toast("Successfully registered!", {
+              position: toast.POSITION.TOP_CENTER,
+            });
+
+            setLoading(false);
+            // Navigate to user target path
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             console.log(error);
+            setLoading(false);
           });
-
-        // Send verification email
-        verificationEmail().then(() => {
-          console.log("Verification email sent");
-        });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -187,6 +182,21 @@ const Register = () => {
                   name="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="name@company.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="photoUrl"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Photo URL:
+                </label>
+                <input
+                  type="text"
+                  name="photoUrl"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                  placeholder="https://img.mypik.com"
                   required
                 />
               </div>
