@@ -62,8 +62,20 @@ const Header = () => {
       </div>
 
       <Navbar.Collapse>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/blogs">Blog</NavLink>
+        <NavLink
+          className={location.pathname === "/" ? "text-blue-500 font-bold" : ""}
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={
+            location.pathname === "/blogs" ? "text-blue-500 font-bold" : ""
+          }
+          to="/blogs"
+        >
+          Blog
+        </NavLink>
       </Navbar.Collapse>
     </Navbar>
   );
