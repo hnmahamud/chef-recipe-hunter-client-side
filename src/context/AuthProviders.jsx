@@ -9,6 +9,7 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
 import app from "../utils/firebase/firebase.config";
 
@@ -50,6 +51,12 @@ const AuthProviders = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // Login with github
+  const githubSignIn = () => {
+    const githubProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, githubProvider);
+  };
+
   // Password reset
   const passwordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
@@ -84,6 +91,7 @@ const AuthProviders = ({ children }) => {
     profileUpdate,
     loginUser,
     googleSignIn,
+    githubSignIn,
     passwordReset,
     logout,
   };

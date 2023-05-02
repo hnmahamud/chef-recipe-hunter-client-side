@@ -121,7 +121,7 @@ const Register = () => {
   return (
     <section className="my-12">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
           {/* Error message */}
           {err ? (
             <div className="bg-white alert alert-error p-4">

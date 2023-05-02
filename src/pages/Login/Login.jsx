@@ -1,13 +1,19 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProviders";
 
 const Login = () => {
   // Context API
-  const { loading, setLoading, loginUser, googleSignIn, passwordReset } =
-    useContext(AuthContext);
+  const {
+    loading,
+    setLoading,
+    loginUser,
+    googleSignIn,
+    githubSignIn,
+    passwordReset,
+  } = useContext(AuthContext);
 
   // Use location and navigate for get the pathname where user wanted to go.
   const location = useLocation();
@@ -135,14 +141,38 @@ const Login = () => {
         const user = result.user;
         console.log(user);
 
+        setErr("");
+
+        toast("Login Successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+
         // Navigate to user target path
         navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        const errForToast = errorMessage.split(":");
+        setErr(errForToast[1]);
+        console.log(`Error Message: ${errorMessage}`);
+      });
+  };
+
+  // Login with github
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
 
         setErr("");
 
         toast("Login Successfully!", {
           position: toast.POSITION.TOP_CENTER,
         });
+
+        // Navigate to user target path
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -153,9 +183,9 @@ const Login = () => {
   };
 
   return (
-    <section className="mt-12">
+    <section className="my-12">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+        <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
           {/* Error message */}
           {err ? (
             <div className="bg-white alert alert-error p-4">
@@ -310,6 +340,17 @@ const Login = () => {
                   <span className="flex justify-center items-center">
                     <FaGoogle className="mr-2 h-5 w-5"></FaGoogle>
                     <span>Sign in with Google</span>
+                  </span>
+                </button>
+
+                <button
+                  onClick={handleGithubLogin}
+                  type="button"
+                  className="w-full text-gray-400 hover:text-white border border-gray-400 hover:bg-gray-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                >
+                  <span className="flex justify-center items-center">
+                    <FaGithub className="mr-2 h-5 w-5"></FaGithub>
+                    <span>Sign in with Github</span>
                   </span>
                 </button>
               </div>
