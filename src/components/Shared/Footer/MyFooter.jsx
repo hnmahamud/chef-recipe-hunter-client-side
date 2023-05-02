@@ -10,9 +10,9 @@ import {
 
 const MyFooter = () => {
   return (
-    <Footer className="bg-black rounded-none" bgDark={true}>
+    <Footer className="rounded-none" bgDark={true}>
       <div className="w-full">
-        <div className="grid w-full grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+        <div className="bg-gray-700 grid w-full grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
           <div>
             <Footer.Title title="Cookiteer" />
             <Footer.LinkGroup col={true}>
@@ -49,7 +49,7 @@ const MyFooter = () => {
             </Footer.LinkGroup>
           </div>
         </div>
-        <div className="w-full bg-gray-700 py-6 px-4 sm:flex sm:items-center sm:justify-between">
+        <div className="w-full bg-gray-800 py-6 px-4 sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright href="#" by="Cookiteer™" year={2023} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={FaFacebook} />
