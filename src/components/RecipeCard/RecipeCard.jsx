@@ -3,6 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { FaHeart } from "react-icons/fa";
 import { toast } from "react-toastify";
+import LazyLoad from "react-lazy-load";
 
 const RecipeCard = ({ recipeData }) => {
   const { recipe_name, image_url, ingredients, cooking_method, rating } =
@@ -20,9 +21,14 @@ const RecipeCard = ({ recipeData }) => {
 
   return (
     <div className="md:grid md:grid-cols-3 md:gap-4 border mb-4 shadow rounded-md">
-      <div>
+      <LazyLoad
+        height={320}
+        onContentVisible={() => {
+          console.log("loaded!");
+        }}
+      >
         <img className="h-80 w-full rounded-sm" src={image_url} alt="" />
-      </div>
+      </LazyLoad>
       <div className="col-span-2 p-2">
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 mb-2">
           {recipe_name}

@@ -68,7 +68,7 @@ const Home = () => {
             type="email"
             placeholder="name@gmail.com"
           />
-          <button className="flex gap-2 text-white border border-blue-500 bg-blue-500 hover:bg-blue-600 font-medium rounded-md text-sm text-center px-4 py-1">
+          <button className="flex gap-2 text-white border border-blue-500 bg-blue-500 hover:bg-blue-600 font-medium rounded-md text-sm text-center px-4 py-2">
             <span>Submit</span>
             <FaTelegramPlane className="mt-1"></FaTelegramPlane>
           </button>

@@ -30,7 +30,7 @@ const Blogs = () => {
                 targetRef={ref}
                 filename="blogs.pdf"
               >
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                {({ toPdf }) => <button onClick={toPdf}>Download Pdf</button>}
               </Pdf>
             </div>
 
@@ -42,7 +42,7 @@ const Blogs = () => {
                 targetRef={ref}
                 filename="blogs.pdf"
               >
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                {({ toPdf }) => <button onClick={toPdf}>Download Pdf</button>}
               </Pdf>
             </div>
           </div>
@@ -53,7 +53,7 @@ const Blogs = () => {
               <h2 className="text-gray-600 text-lg font-bold">
                 Differences between uncontrolled and controlled components.
               </h2>
-              <p className="text-subTitle">
+              <p className="text-gray-500">
                 Uncontrolled and controlled components are two types of UI
                 elements used in handle user input. Uncontrolled components rely
                 on the DOM to manage user input and do not have their own
@@ -72,7 +72,7 @@ const Blogs = () => {
               <h2 className="text-gray-600 text-lg font-bold">
                 How to validate React props using PropTypes?
               </h2>
-              <p className="text-subTitle">
+              <p className="text-gray-500">
                 To validate React props using PropTypes, you can import the
                 PropTypes library and define the expected type and shape of each
                 prop in your component. This helps catch errors early on and
@@ -94,7 +94,7 @@ const Blogs = () => {
               <h2 className="text-gray-600 text-lg font-bold">
                 Difference between nodejs and express js.
               </h2>
-              <p className="text-subTitle">
+              <p className="text-gray-500">
                 Node.js is a runtime environment that allows developers to run
                 JavaScript code outside of a web browser. It provides a set of
                 built-in modules and APIs for server-side programming, such as
@@ -119,7 +119,7 @@ const Blogs = () => {
               <h2 className="text-gray-600 text-lg font-bold">
                 What is a custom hook, and why will you create a custom hook?
               </h2>
-              <p className="text-subTitle">
+              <p className="text-gray-500">
                 In React, a custom hook is a reusable function that encapsulates
                 common logic or behavior that can be shared across multiple
                 components. Custom hooks are a way to extract and reuse code
