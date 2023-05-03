@@ -46,7 +46,7 @@ const RecipeCard = ({ recipeData }) => {
             <span>{cooking_method}</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex flex-grow">
+            <div className="flex gap-2 flex-grow">
               <h3 className="text-gray-700 font-semibold">Rating:</h3>
               <Rating style={{ maxWidth: 100 }} value={rating} readOnly />
               <span>{parseFloat(rating)}</span>
