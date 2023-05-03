@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Blogs from "../pages/Blogs/Blogs";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +19,20 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () =>
           fetch(
-            "https://chef-recipe-hunter-server-hnmahamud.vercel.app/allchef"
+            "https://chef-recipe-hunter-server-hnmahamud.vercel.app/all-chef"
           ),
       },
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/chef-details/:id",
+        element: <ChefDetails></ChefDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-recipe-hunter-server-hnmahamud.vercel.app/chef-details/${params.id}`
+          ),
       },
       {
         path: "/login",

@@ -1,6 +1,7 @@
 import { Card } from "flowbite-react";
 import React from "react";
 import { FaThumbsUp, FaBriefcase, FaListOl } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ChefCard = ({ chefData }) => {
   const { id, picture, name, likes, years_of_experience, number_of_recipes } =
@@ -27,12 +28,13 @@ const ChefCard = ({ chefData }) => {
             <span>Numbers of recipes: {number_of_recipes}</span>
           </div>
         </div>
-        <button
+        <Link
+          to={`/chef-details/${id}`}
           type="button"
           className="w-full bg-gray-300 text-gray-500 border border-gray-300 hover:bg-gray-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-md text-sm px-5 py-2.5 text-center"
         >
           View Recipes
-        </button>
+        </Link>
       </Card>
     </div>
   );
