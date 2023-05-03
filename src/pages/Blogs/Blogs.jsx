@@ -3,10 +3,16 @@ import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
 const Blogs = () => {
-  const options = {
+  const optionsForPc = {
     orientation: "landscape",
     unit: "in",
     format: [10, 18],
+  };
+
+  const optionsForPhn = {
+    orientation: "portrait",
+    unit: "in",
+    format: [22, 6],
   };
 
   return (
@@ -15,16 +21,30 @@ const Blogs = () => {
       <div className="w-[95%] md:w-[80%] mx-auto flex flex-col space-y-4 my-12">
         <div className="flex justify-between">
           <h3 className="text-2xl text-gray-500 font-extrabold">Blogs</h3>
-          <div className="text-gray-500 border border-gray-500 hover:bg-gray-500 hover:text-white font-medium rounded-md text-sm text-center px-4 py-1">
-            <Pdf
-              x={1}
-              y={1}
-              options={options}
-              targetRef={ref}
-              filename="blogs.pdf"
-            >
-              {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-            </Pdf>
+          <div>
+            <div className="hidden md:block text-gray-500 border border-gray-500 hover:bg-gray-500 hover:text-white font-medium rounded-md text-sm text-center px-4 py-1">
+              <Pdf
+                x={1}
+                y={1}
+                options={optionsForPc}
+                targetRef={ref}
+                filename="blogs.pdf"
+              >
+                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+              </Pdf>
+            </div>
+
+            <div className="block md:hidden text-gray-500 border border-gray-500 hover:bg-gray-500 hover:text-white font-medium rounded-md text-sm text-center px-4 py-1">
+              <Pdf
+                x={1}
+                y={1}
+                options={optionsForPhn}
+                targetRef={ref}
+                filename="blogs.pdf"
+              >
+                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+              </Pdf>
+            </div>
           </div>
         </div>
         <div className="card card-side border rounded-md shadow-md p-4">
