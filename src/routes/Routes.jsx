@@ -18,10 +18,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch(
-            "https://chef-recipe-hunter-server-hnmahamud.vercel.app/all-chef"
-          ),
       },
       {
         path: "/blogs",
@@ -34,10 +30,6 @@ const router = createBrowserRouter([
             <ChefDetails></ChefDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://chef-recipe-hunter-server-hnmahamud.vercel.app/chef-details/${params.id}`
-          ),
       },
       {
         path: "/login",

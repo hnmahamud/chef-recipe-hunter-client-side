@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
-import { useLoaderData } from "react-router-dom/dist";
 import ChefCard from "../../components/ChefCard/ChefCard";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const Home = () => {
-  const chefData = useLoaderData();
-  console.log(chefData);
+  const [chefData, setChefData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://chef-recipe-hunter-server-hnmahamud.vercel.app/all-chef")
+      .then((response) => response.json())
+      .then((data) => setChefData(data));
+  }, []);
+
+  if (!chefData) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+
   return (
     <div>
       <Slider></Slider>
@@ -27,9 +37,10 @@ const Home = () => {
           </p>
         </div>
         <div className="md:grid md:grid-cols-3 gap-4">
-          {chefData.map((cd) => (
-            <ChefCard key={cd.id} chefData={cd}></ChefCard>
-          ))}
+          {chefData &&
+            chefData.map((cd) => (
+              <ChefCard key={cd.id} chefData={cd}></ChefCard>
+            ))}
         </div>
       </div>
     </div>
