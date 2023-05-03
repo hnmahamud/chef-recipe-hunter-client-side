@@ -30,7 +30,7 @@ const ChefDetails = () => {
 
   return (
     <div className="flex flex-col justify-center items-center my-12 divide-y">
-      <div className="max-w-lg">
+      <div className="max-w-2xl">
         <Card>
           <div className="flex flex-col items-center">
             <img
@@ -40,7 +40,7 @@ const ChefDetails = () => {
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
               {name}
             </h5>
-            <div className="flex flex-col gap-2 font-normal text-gray-500 text-sm">
+            <div className="flex flex-col gap-2 font-normal text-gray-500">
               <div className="grid grid-cols-2 gap-2">
                 <div className="flex items-center justify-center gap-1 border px-1 rounded-md text-gray-500 ">
                   <FaThumbsUp></FaThumbsUp>
@@ -63,16 +63,16 @@ const ChefDetails = () => {
         </Card>
       </div>
 
-      <div className="w-[95%] md:w-[80%] mx-auto space-y-8 pt-8 my-12">
+      <div className="w-[95%] md:w-[80%] mx-auto space-y-8 pt-8 mt-12">
         <div className="text-start md:text-center space-y-4">
           <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
-            Savor the Flavors of China with Chef's Signature Recipes
+            Savor the Flavors of China with {name}'s Signature Recipes
           </h2>
           <p className="md:w-[80%] mx-auto text-gray-500">
-            Indulge in the authentic taste of Chinese cuisine with a curated
-            collection of signature recipes from a renowned Chinese chef. From
-            classic favorites to innovative creations, this recipe list offers a
-            unique and flavorful experience for any food enthusiast.
+            Each recipe ensuring the highest quality and authenticity. With
+            easy-to-follow instructions and readily available ingredients, you
+            can recreate these delectable dishes at home and impress your family
+            and friends with your culinary skills.
           </p>
         </div>
         <div>
