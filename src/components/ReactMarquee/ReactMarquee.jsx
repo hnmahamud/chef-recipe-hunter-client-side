@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const ReactMarquee = () => {
   return (
-    <div className="mb-12 space-y-4">
+    <div className="my-12 space-y-4">
       <div className="text-start md:text-center space-y-4 p-2">
         <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
           Savor Our Top-Rated Foods

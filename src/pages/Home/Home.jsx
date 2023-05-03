@@ -3,6 +3,9 @@ import Slider from "../../components/Slider/Slider";
 import ChefCard from "../../components/ChefCard/ChefCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ReactMarquee from "../../components/ReactMarquee/ReactMarquee";
+import newsLatter from "../../assets/newslatter.gif";
+import { TextInput } from "flowbite-react";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const Home = () => {
   const [chefData, setChefData] = useState(null);
@@ -49,6 +52,31 @@ const Home = () => {
 
       {/* Tof rated rood section */}
       <ReactMarquee></ReactMarquee>
+
+      {/* Subscribe to My Newsletter section */}
+      <div className="w-[95%] md:w-[70%] mx-auto md:flex md:justify-between md:items-center space-y-8 mb-12">
+        <div className="text-start space-y-2 flex-grow">
+          <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
+            Subscribe to our newsletter
+          </h2>
+          <p className="text-gray-500">
+            Get access to our latest recipes by joining the weekly newsletter
+          </p>
+          <TextInput
+            className="md:w-[50%]"
+            id="email1"
+            type="email"
+            placeholder="name@gmail.com"
+          />
+          <button className="flex gap-2 text-white border border-blue-500 bg-blue-500 hover:bg-blue-600 font-medium rounded-md text-sm text-center px-4 py-1">
+            <span>Submit</span>
+            <FaTelegramPlane className="mt-1"></FaTelegramPlane>
+          </button>
+        </div>
+        <div>
+          <img className="h-96" src={newsLatter} alt="" />
+        </div>
+      </div>
     </div>
   );
 };
