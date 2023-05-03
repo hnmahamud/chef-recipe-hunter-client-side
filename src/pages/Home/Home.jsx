@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
 import ChefCard from "../../components/ChefCard/ChefCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import ReactMarquee from "../../components/ReactMarquee/ReactMarquee";
 
 const Home = () => {
   const [chefData, setChefData] = useState(null);
@@ -18,8 +19,10 @@ const Home = () => {
 
   return (
     <div>
+      {/* Slider section */}
       <Slider></Slider>
 
+      {/* List of chef section */}
       <div className="w-[95%] md:w-[80%] mx-auto space-y-8 my-12">
         <div className="text-start md:text-center space-y-4">
           <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
@@ -43,6 +46,9 @@ const Home = () => {
             ))}
         </div>
       </div>
+
+      {/* Tof rated rood section */}
+      <ReactMarquee></ReactMarquee>
     </div>
   );
 };
