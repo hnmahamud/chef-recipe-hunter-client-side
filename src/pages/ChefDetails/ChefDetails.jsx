@@ -1,12 +1,8 @@
 import { Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import {
-  FaThumbsUp,
-  FaBriefcase,
-  FaListOl,
-  FaInfoCircle,
-} from "react-icons/fa";
+import { FaThumbsUp, FaBriefcase, FaListOl } from "react-icons/fa";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 const ChefDetails = () => {
   const chefDetails = useLoaderData();
@@ -33,7 +29,7 @@ const ChefDetails = () => {
   console.log(recipeData);
 
   return (
-    <div className="flex flex-col justify-center items-center my-12">
+    <div className="flex flex-col justify-center items-center my-12 divide-y">
       <div className="max-w-lg">
         <Card>
           <div className="flex flex-col items-center">
@@ -65,6 +61,26 @@ const ChefDetails = () => {
             </div>
           </div>
         </Card>
+      </div>
+
+      <div className="w-[95%] md:w-[80%] mx-auto space-y-8 pt-8 my-12">
+        <div className="text-start md:text-center space-y-4">
+          <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
+            Savor the Flavors of China with Chef's Signature Recipes
+          </h2>
+          <p className="md:w-[80%] mx-auto text-gray-500">
+            Indulge in the authentic taste of Chinese cuisine with a curated
+            collection of signature recipes from a renowned Chinese chef. From
+            classic favorites to innovative creations, this recipe list offers a
+            unique and flavorful experience for any food enthusiast.
+          </p>
+        </div>
+        <div>
+          {recipeData &&
+            recipeData.map((rd) => (
+              <RecipeCard key={rd.id} recipeData={rd}></RecipeCard>
+            ))}
+        </div>
       </div>
     </div>
   );
