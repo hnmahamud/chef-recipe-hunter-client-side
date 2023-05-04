@@ -54,7 +54,7 @@ const Home = () => {
       <ReactMarquee></ReactMarquee>
 
       {/* Subscribe to My Newsletter section */}
-      <div className="w-[95%] md:w-[70%] mx-auto md:flex md:justify-between md:items-center space-y-8 mb-12">
+      <div className="w-[95%] md:w-[80%] mx-auto md:flex md:justify-between md:items-center space-y-8 mb-12">
         <div className="text-start space-y-2 flex-grow">
           <h2 className="text-blue-500 text-xl md:text-3xl font-extrabold">
             Subscribe to our newsletter

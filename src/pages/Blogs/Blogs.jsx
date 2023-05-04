@@ -6,13 +6,13 @@ const Blogs = () => {
   const optionsForPc = {
     orientation: "landscape",
     unit: "in",
-    format: [10, 18],
+    format: [15, 18],
   };
 
   const optionsForPhn = {
     orientation: "portrait",
     unit: "in",
-    format: [22, 6],
+    format: [25, 6],
   };
 
   return (
