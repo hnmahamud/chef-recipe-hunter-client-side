@@ -21,8 +21,8 @@ const Slider = () => {
               Find your perfect chef match
             </h2>
             <p className="hidden md:block md:w-[60%]">
-              Welcome to our chef hunting website, where you can search for
-              talented chefs from around the world to meet your culinary needs.
+              Welcome to our chef hunting website, where you can search chinese
+              chefs to meet your culinary needs.
             </p>
             <button
               type="button"
