@@ -73,7 +73,7 @@ const Home = () => {
             className="md:w-[50%]"
             id="email1"
             type="email"
-            placeholder="name@gmail.com"
+            placeholder="name@company.com"
           />
           <button className="flex gap-2 text-white border border-blue-500 bg-blue-500 hover:bg-blue-600 font-medium rounded-md text-sm text-center px-4 py-2">
             <span>Submit</span>

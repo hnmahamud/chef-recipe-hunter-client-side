@@ -81,6 +81,27 @@ const Register = () => {
     const photo = form.photoUrl.value;
     const password = form.password.value;
 
+    // Recheck email for validation
+    if (
+      !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email
+      )
+    ) {
+      setErr("Please provide a valid email");
+      return;
+    }
+
+    // Recheck password for validation
+    if (
+      password.length < 6 ||
+      !/(?=.*[!@#$%^&*])/.test(password) ||
+      !/(?=.*[A-Z])(?=.*[a-z])/.test(password) ||
+      !/(?=.*\d)/.test(password)
+    ) {
+      setErr("Please provide a valid password");
+      return;
+    }
+
     // Create user
     createUser(email, password)
       .then((userCredential) => {
